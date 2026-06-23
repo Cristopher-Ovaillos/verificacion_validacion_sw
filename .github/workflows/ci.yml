@@ -17,8 +17,8 @@ jobs:
       - run: pip install pytest pytest-cov
       - run: |
           cd "Unidad_III_Testing de_Integracio_Regresion_Mutacional_Aceptacion_CICD"
-          pytest Ejercicio2/tests/test_auto_asignar.py --cov=Ejercicio2/modelo --cov-report= --cov-branch -v
-          pytest Ejercicio3/tests/test_auto_asignar.py --cov=Ejercicio3/modelo --cov-report=xml --cov-branch --cov-append --cov-fail-under=80 -v
+          pytest Ejercicio2/tests/test_auto_asignar.py --cov=Ejercicio2/modelo/auto.py --cov-report= --cov-branch -v
+          pytest Ejercicio3/tests/test_auto_asignar.py --cov=Ejercicio3/modelo/auto.py --cov-report=xml --cov-branch --cov-append --cov-fail-under=80 -v
       - uses: actions/upload-artifact@v4
         with:
           name: coverage-report
