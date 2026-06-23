@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: flota.TestMotoHeredadi
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.030 s <<< FAILURE! -- in flota.TestMotoHeredadi
+flota.TestMotoHeredadi.testAsignarCE1CE4 -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.IllegalArgumentException: Motos: máx 300 km
+	at flota.Moto.asignar(Moto.java:12)
+	at flota.VehiculoTest.testAsignarCE1CE4(VehiculoTest.java:18)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
