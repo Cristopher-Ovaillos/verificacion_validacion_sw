@@ -1,0 +1,45 @@
+opencode
+teoria
+informes
+enunciado_informe
+opencode.json
+.opencode
+/.opencode
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+.venv
+venv/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Java Maven
+target/
+
+# mutmut
+mutants/
+.mutmut-cache/
+
+# Coverage reports
+coverage.xml
+
+# Teoría / PDFs (no son respuestas)
+*.pdf
+
+# READMEs de ejercicios (contienen resoluciones, no deben ver los docentes)
+Unidad_ii_Testing Orientado a Objetos/README.md
+Unidad_ii_Testing Orientado a Objetos/ejercicio_1/README.md
+Unidad_ii_Testing Orientado a Objetos/ejercicio_4/README.md
+Unidad_ii_Testing Orientado a Objetos/ejercicio_5/README.md
+Unidad_III_Testing de_Integracio_Regresion_Mutacional_Aceptacion_CICD/Ejercicio3/README.md
+Unidad_III_Testing de_Integracio_Regresion_Mutacional_Aceptacion_CICD/Ejercicio5/README.md
+Unidad_III_Testing de_Integracio_Regresion_Mutacional_Aceptacion_CICD/flota_bdd/README.md
+

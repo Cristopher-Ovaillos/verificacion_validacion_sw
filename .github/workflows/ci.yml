@@ -1,0 +1,78 @@
+name: CI — Sistema Flota Vehicular
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  tests-unidad:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install pytest pytest-cov
+      - run: |
+          cd "Unidad_III_Testing de_Integracio_Regresion_Mutacional_Aceptacion_CICD"
+          pytest Ejercicio2/tests/test_auto_asignar.py Ejercicio3/tests/test_auto_asignar.py --cov=Ejercicio2/modelo --cov=Ejercicio3/modelo --cov-report=xml --cov-fail-under=80 -v
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage.xml
+
+  tests-integracion:
+    needs: [tests-unidad]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install pytest pytest-cov
+      - run: |
+          cd "Unidad_III_Testing de_Integracio_Regresion_Mutacional_Aceptacion_CICD"
+          pytest Ejercicio2/tests/test_contaminacion_singleton.py Ejercicio2/tests/test_auto_registro.py Ejercicio2/tests/test_no_regresion_moto_camion.py Ejercicio2/tests/test_regresion_cambio_a.py -v
+
+  mutation-score:
+    needs: [tests-integracion]
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install mutmut pytest
+      - name: Mutation test on auto.py
+        run: |
+          cd "Unidad_III_Testing de_Integracio_Regresion_Mutacional_Aceptacion_CICD/Ejercicio3"
+          mutmut run --paths-to-mutate=modelo/auto.py
+          python -c "
+import json, sys
+with open('mutmut-stats.json') as f:
+    stats = json.load(f)
+total = stats['total'] - stats.get('skipped', 0)
+killed = stats['killed']
+ms = killed / total if total > 0 else 1.0
+print(f'Mutation Score: {ms:.2%}')
+if ms < 0.75:
+    print(f'FAIL: MS {ms:.2%} < 75%')
+    sys.exit(1)
+"
+      - run: mutmut results
+
+  tests-aceptacion:
+    needs: [tests-integracion]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install behave
+      - run: |
+          cd "Unidad_III_Testing de_Integracio_Regresion_Mutacional_Aceptacion_CICD/flota_bdd"
+          behave features/
