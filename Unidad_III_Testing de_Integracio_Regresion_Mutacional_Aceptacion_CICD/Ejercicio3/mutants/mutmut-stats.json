@@ -1,0 +1,51 @@
+{
+    "tests_by_mangled_function_name": {
+        "modelo.moto.x\u01c1Moto\u01c1asignar": [
+            "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_moto_asignar_301_rechazado",
+            "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_moto_liberar_tras_asignar",
+            "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_moto_asignar_300_km_limite"
+        ],
+        "modelo.moto.x\u01c1Moto\u01c1__init__": [
+            "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_moto_asignar_301_rechazado",
+            "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_moto_liberar_tras_asignar",
+            "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_moto_asignar_300_km_limite"
+        ],
+        "modelo.moto.x\u01c1Moto\u01c1liberar": [
+            "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_moto_liberar_tras_asignar"
+        ],
+        "modelo.camion.x\u01c1Camion\u01c1asignar": [
+            "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_camion_liberar_tras_asignar",
+            "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_camion_asignar_2000_km_limite",
+            "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_camion_asignar_2001_rechazado"
+        ],
+        "modelo.camion.x\u01c1Camion\u01c1__init__": [
+            "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_camion_liberar_tras_asignar",
+            "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_camion_asignar_2000_km_limite",
+            "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_camion_asignar_2001_rechazado"
+        ],
+        "modelo.camion.x\u01c1Camion\u01c1liberar": [
+            "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_camion_liberar_tras_asignar"
+        ]
+    },
+    "duration_by_test": {
+        "tests/test_auto_asignar.py::TestSuiteTP2_Auto::test_3a_asignar_km_limite_inferior": 0.006568203999998801,
+        "tests/test_auto_asignar.py::TestSuiteTP2_Auto::test_3b_asignar_km_limite_superior_500": 0.000797003000000629,
+        "tests/test_auto_asignar.py::TestSuiteTP2_Auto::test_3c_asignar_km_cero": 0.0005502149999987438,
+        "tests/test_auto_asignar.py::TestSuiteTP2_Auto::test_3d_asignar_desde_en_uso": 0.0005376409999993115,
+        "tests/test_auto_asignar.py::TestSuiteTP2_Auto::test_3e_liberar_km_150": 0.015328428000001892,
+        "tests/test_auto_asignar.py::TestSuiteTP2_Auto::test_3f_liberar_desde_disponible": 0.0007262290000031868,
+        "tests/test_auto_asignar.py::TestSuiteTP2_Auto::test_3g_enviar_mantenimiento": 0.0006479200000004681,
+        "tests/test_auto_asignar.py::TestSuiteTP2_Auto::test_3h_dar_de_baja": 0.0004858239999983027,
+        "tests/test_auto_asignar.py::TestNuevoLimite800::test_asignar_800_km_en_el_limite": 0.0006090869999990645,
+        "tests/test_auto_asignar.py::TestNuevoLimite800::test_asignar_801_km_excede_limite": 0.0011355449999985723,
+        "tests/test_auto_asignar.py::TestNuevoLimite800::test_asignar_1_km_sigue_siendo_valido": 0.0006906410000002694,
+        "tests/test_auto_asignar.py::TestNuevoLimite800::test_asignar_500_km_ahora_es_valido": 0.0005879369999988171,
+        "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_moto_asignar_300_km_limite": 0.002458910000001424,
+        "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_moto_asignar_301_rechazado": 0.0033139799999997166,
+        "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_moto_liberar_tras_asignar": 0.005199661000000688,
+        "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_camion_asignar_2000_km_limite": 0.004377770999999697,
+        "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_camion_asignar_2001_rechazado": 0.002649720999999161,
+        "tests/test_auto_asignar.py::TestNoRegresionMotoCamion::test_camion_liberar_tras_asignar": 0.005858377999997444
+    },
+    "stats_time": 0.728214419
+}
