@@ -50,18 +50,7 @@ jobs:
         run: |
           cd "Unidad_III_Testing de_Integracio_Regresion_Mutacional_Aceptacion_CICD/Ejercicio3"
           mutmut run --paths-to-mutate=modelo/auto.py
-          python -c "
-import json, sys
-with open('mutmut-stats.json') as f:
-    stats = json.load(f)
-total = stats['total'] - stats.get('skipped', 0)
-killed = stats['killed']
-ms = killed / total if total > 0 else 1.0
-print(f'Mutation Score: {ms:.2%}')
-if ms < 0.75:
-    print(f'FAIL: MS {ms:.2%} < 75%')
-    sys.exit(1)
-"
+          python -c "import json,sys; stats=json.load(open('mutmut-stats.json')); total=stats['total']-stats.get('skipped',0); killed=stats['killed']; ms=killed/total if total>0 else 1.0; print(f'MS: {ms:.2%}'); (print(f'FAIL: MS {ms:.2%} < 75%') or sys.exit(1)) if ms<0.75 else None"
       - run: mutmut results
 
   tests-aceptacion:
