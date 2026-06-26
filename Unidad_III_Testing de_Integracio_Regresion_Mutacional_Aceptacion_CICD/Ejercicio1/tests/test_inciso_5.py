@@ -29,6 +29,7 @@ class TestEscenarioCompleto:
         servicio.ingresar(auto)
         assert 'ABC123' in servicio._vehiculos_en_taller
 
-        servicio.liberar(auto)   # aquí se manifiesta el bug
+        servicio.liberar(auto)   # aqui aparece el bug (librar cambia a un estado incorrecto)
 
-        assert auto.get_estado() == EstadoVehiculo.DISPONIBLE
+        assert auto.get_estado() == EstadoVehiculo.DISPONIBLE #falla
+
